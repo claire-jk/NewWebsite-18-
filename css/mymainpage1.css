@@ -1,0 +1,115 @@
+/* 全域基本設定 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 套用主字體（可改為你偏好的那一款） */
+body {
+  font-family: 'Zen Kurenaido', sans-serif;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  color: rgb(240, 146, 53);
+  position: relative;
+  background: url('../image/mainpage.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* header 淡入動畫 */
+header {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 2s ease-in forwards;
+}
+
+/* 套用標題字體 */
+header h1 {
+  font-family: 'Zen Kurenaido', serif; /* 高雅襯線字體 */
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 8px rgb(0, 0, 0);
+}
+
+/* 淡入動畫關鍵影格 */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* 向下箭頭樣式 */
+.scroll-down {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  animation: bounce 1.5s infinite;
+  font-family: 'Lexend', sans-serif; /* 現代風格字體給按鈕使用 */
+}
+
+/* 箭頭跳動動畫 */
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+/* ====================== */
+/* 🌸 櫻花花瓣樣式          */
+/* ====================== */
+.petal {
+  position: fixed;
+  top: -10px;
+  width: 15px;
+  height: 15px;
+  background: pink;
+  border-radius: 150% 0 150% 0; /* 花瓣形狀 */
+  opacity: 0.8;
+  pointer-events: none;
+  animation-name: fall, sway, spin;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* 花瓣下落 */
+@keyframes fall {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(110vh); }
+}
+
+/* 左右搖擺 */
+@keyframes sway {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(40px); }
+  100% { transform: translateX(-40px); }
+}
+
+/* 旋轉效果 */
+@keyframes spin {
+  0% { rotate: 0deg; }
+  100% { rotate: 360deg; }
+}
+
+/* 響應式：手機版背景圖（小於或等於480px） */
+@media (max-width: 480px) {
+  body {
+    background: url('../image/mainpagemobile.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+    padding: 0 10px;
+  }
+
+  .scroll-down {
+    font-size: 1.8rem;
+    bottom: 60px;
+  }
+}
